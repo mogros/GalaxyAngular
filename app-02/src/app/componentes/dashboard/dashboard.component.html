@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container mt-4">
+        @if(errorEndPoint){
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <div>
+              Error, Consulte al Admin del sistema
+            </div>
+        </div>
+       }
+        
+        @if(!visiblePersona){
+        <div class="text-center">
+            <div class="spinner-border m-2" role="status"></div>
+            <div class="spinner-border m-2" role="status"></div>
+            <div class="spinner-border m-2" role="status"></div>
+        </div>
+       }@else{
+        <div class="row"  >
+            @for(persona of personas; track persona.id){
+            <div class="col-lg-4 mt-3">
+                <div class="card h-100 text-dark bg-secondary mb-3" >
+                    <div class="card-header">Persona {{ persona.id }}</div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ persona.nombre }}</h4>
+                        <h4 class="card-title">{{ persona.apellidos }}</h4>
+                        <p class="card-text">{{ persona.edad }}</p>
+                        <p class="card-text">{{ persona.direccion }}</p>
+                        <p class="card-text">{{ persona.telefono }}</p>
+                    </div>
+                  </div>
+            </div>
+            }    
+        </div>
+       }
+    </div>
+</div>
+
